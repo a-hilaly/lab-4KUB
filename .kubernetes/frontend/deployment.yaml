@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: supinfosxb/frontend:v1
+        image: supinfosxb/frontend:v1.2
         ports:
         - containerPort: 8080
         resources:
@@ -31,7 +31,6 @@ spec:
         args:
           - redis
           - postgres
-
 
       restartPolicy: Always
     

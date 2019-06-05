@@ -6,4 +6,4 @@ ADD package.json .
 
 RUN npm i
 
-ENTRYPOINT [ "node", "start" ]
+ENTRYPOINT [ "npm", "start" ]

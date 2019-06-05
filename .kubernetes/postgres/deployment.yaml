@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_DB
+          value: medtune
+        - name: POSTGRES_PASSWORD
+          value: mdtn
+        - name: POSTGRES_USER
+          value: mdtn
+        image: postgres:latest
+        name: postgres
+        ports:
+        - containerPort: 5432
+      restartPolicy: Always

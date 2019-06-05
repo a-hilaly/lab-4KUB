@@ -40,7 +40,7 @@ def redis():
 @app.route("/postgres")
 def postgres():
     # ping postgres
-    r = requests.get("http://" + postgres_hostname, timeout=2)
+    r = requests.get("http://" + postgres_hostname + ":5432", timeout=2)
 
     return "postgres response: {0}".format(r.content)
 
