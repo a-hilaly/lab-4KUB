@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: api-deployment
+  labels:
+    name: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: api
+
+  template:
+    metadata:
+      labels:
+        name: api
+    spec:
+      containers:
+      - name: api
+        image: supinfosxb/api:v1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 50m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 250Mi
+        args:
+          - redis
+          - postgres
+
+
+      restartPolicy: Always
+    
